@@ -13,7 +13,7 @@ Advantages  of using our free service:
 
 # One line installation:
 ```
-. <(wget -qO- https://raw.githubusercontent.com/L0vd/rebus-monitoring/main/rebus-monitoring-install.sh)
+. <(wget -qO- https://raw.githubusercontent.com/L0vd/Ollo/main/Monitoring/ollo-monitoring-install.sh)
 ```
 
 # OR Manual installation of telegraf and monitoring script

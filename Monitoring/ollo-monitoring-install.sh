@@ -1,7 +1,7 @@
 #!/bin/bash
 installed() 
 {
-  [ -n  "$(ps -A | grep $1)" ] 
+  [ -n  "$(ps -A | grep $1)" ]
 }
 
 exist()

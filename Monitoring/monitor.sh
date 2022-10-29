@@ -7,7 +7,7 @@ source ./variables.sh
 now=$(date +%s%N)
 
 # fill header
-logentry="ollo"
+logentry=${LOGENTTRY}
 if [ -n "${COS_VALOPER}" ]; then logentry=$logentry",valoper=${COS_VALOPER}"; fi
 
 # Get defund version

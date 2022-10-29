@@ -46,10 +46,13 @@ sudo systemctl status telegraf
 ```
 Status can be not ok with default Telegraf's config. Next steps will fix it.
 
-Clone this project repo and copy variable script template
+Get files from this project repo and copy variable script template
 ```
-git clone https://github.com/L0vd/rebus-monitoring.git
+cd $HOME
+mkdir ollo-monitoring
 cd ollo-monitoring
+wget https://raw.githubusercontent.com/L0vd/Ollo/main/Monitoring/monitor.sh
+wget https://raw.githubusercontent.com/L0vd/Ollo/main/Monitoring/telegraf.conf
 nano variables.sh
 ```
 

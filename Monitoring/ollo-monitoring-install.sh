@@ -36,7 +36,7 @@ fi
 
 if exist wget;
 then :
-else sudo apt update && sudo apt -y install bc 
+else sudo apt update && sudo apt -y install bc
 fi
 
 if exist jq;

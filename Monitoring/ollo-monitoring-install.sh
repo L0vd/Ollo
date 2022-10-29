@@ -1,6 +1,5 @@
 #!/bin/bash
-
-installed() 
+installed()
 {
   [ -n  "$(ps -A | grep $1)" ]
 }

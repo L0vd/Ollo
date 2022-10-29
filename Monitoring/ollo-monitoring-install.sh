@@ -84,6 +84,7 @@ COS_BIN=ollod
 COS_BIN_NAME=$(which $COS_BIN)
 COS_PORT_RPC=$($COS_BIN config | jq -r .node | cut -d : -f 3)
 COS_MONIKER=$(curl -s localhost:$COS_PORT_RPC/status | jq -r '.result.node_info.moniker')
+LOGENTRY=ollo
 
 PUBLIC_VALIDATOR_KEY=$(jq -r '.result.validator_info.pub_key.value' <<<$(curl -s localhost:$COS_PORT_RPC/status))
 COS_VALOPER=$(jq -r '.operator_address' <<<$(${COS_BIN_NAME} q staking validators -o json --limit=3000 --node "tcp://localhost:${COS_PORT_RPC}" \
@@ -94,6 +95,7 @@ cat > variables.sh <<EOL
 COS_BIN_NAME=$COS_BIN_NAME             # example: /root/go/bin/ollod or /home/user/go/bin/ollod
 COS_PORT_RPC=$COS_PORT_RPC         # default: 26657
 COS_VALOPER=$COS_VALOPER           # example: ollovaloper1234545636767376535673
+LOGENTRY=$LOGENTRY
 EOL
 
 

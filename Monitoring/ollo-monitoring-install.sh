@@ -34,6 +34,11 @@ then :
 else sudo apt update && sudo apt -y install curl
 fi
 
+if exist wget;
+then :
+else sudo apt update && sudo apt -y install bc 
+fi
+
 if exist jq;
 then :
 else sudo apt update && sudo apt -y install jq
@@ -71,8 +76,9 @@ echo -e '\e[32mCloning github repo\e[39m'
 echo ''
 
 cd $HOME
-git clone https://github.com/L0vd/ollo-monitoring.git >/dev/null 2>&1
+mkdir ollo-monitoring
 cd ollo-monitoring
+wget https://raw.githubusercontent.com/L0vd/Ollo/main/Monitoring/monitor.sh >/dev/null 2>&1
 
 COS_BIN=ollod
 COS_BIN_NAME=$(which $COS_BIN)

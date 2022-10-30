@@ -67,25 +67,36 @@ Save changes in variables.sh and enable execution permissions:
 chmod +x monitor.sh variables.sh
 ```
 
+Create telegraf service for ollo-node monitoring
+```
+cat > /etc/systemd/system/telegraf_ollo.service <<EOL
+[Unit]
+Description=The plugin-driven server agent for reporting metrics into InfluxDB
+Documentation=https://github.com/influxdata/telegraf
+After=network.target
+[Service]
+EnvironmentFile=-/etc/default/telegraf
+User=telegraf
+ExecStart=/usr/bin/telegraf -config /etc/telegraf/telegraf_ollo.conf -config-directory /etc/telegraf/telegraf.d $TELEGRAF_OPTS
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartForceExitStatus=SIGPIPE
+KillMode=control-group
+[Install]
+WantedBy=multi-user.target
+EOL
+```
+
 Edit telegraf configuration
 ```
 sudo mv /etc/telegraf/telegraf.conf /etc/telegraf/telegraf.conf.orig
-sudo mv telegraf.conf /etc/telegraf/telegraf.conf
-sudo nano /etc/telegraf/telegraf.conf
+sudo mv telegraf.conf /etc/telegraf/telegraf_ollo.conf
 ```
-Set you name to identify yourself in grafana dashboard and check correctness of the path to your monitor.sh file and username your validator runs at. Correct these two settings in the configuration file:
+Restart telegraf service
+
 ```
-# Global Agent Configuration
-[agent]
-  hostname = "YOUR_MONIKER/SERVER_NAME" # set this to a name you want to identify your node in the grafana dashboard
-...
-...
-[[inputs.exec]]
-  commands = ["sudo su -c /root/ollo-monitoring/monitor.sh -s /bin/bash root"] # change path to your monitor.sh file and username to the one that validator runs at (e.g. root)
-  interval = "15s"
-  timeout = "5s"
-  data_format = "influx"
-  data_type = "integer"
+sudo systemctl daemon-reload
+sudo systemctl restart telegraf_ollo
 ```
 
 ## Dashboard interface 

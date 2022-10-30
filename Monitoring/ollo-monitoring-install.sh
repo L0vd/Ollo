@@ -101,7 +101,7 @@ EOL
 
 chmod +x monitor.sh variables.sh
 
-cat > telegraf.conf <<EOL
+cat > telegraf_ollo.conf <<EOL
 # Global Agent Configuration
 [agent]
   hostname = "$COS_MONIKER" # set this to a name you want to identify your node in the grafana dashboard
@@ -136,11 +136,30 @@ cat > telegraf.conf <<EOL
   data_type = "integer"
 EOL
 
+cat > /etc/systemd/system/telegraf_ollo.service <<EOL
+[Unit]
+Description=The plugin-driven server agent for reporting metrics into InfluxDB
+Documentation=https://github.com/influxdata/telegraf
+After=network.target
 
+[Service]
+EnvironmentFile=-/etc/default/telegraf
+User=telegraf
+ExecStart=/usr/bin/telegraf -config /etc/telegraf/telegraf_ollo.conf -config-directory /etc/telegraf/telegraf.d $TELEGRAF_OPTS
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartForceExitStatus=SIGPIPE
+KillMode=control-group
+
+[Install]
+WantedBy=multi-user.target
+EOL
 
 sudo mv /etc/telegraf/telegraf.conf /etc/telegraf/telegraf.conf.orig
-sudo mv telegraf.conf /etc/telegraf/telegraf.conf
+sudo mv telegraf_ollo.conf /etc/telegraf/telegraf_ollo.conf
 
+
+sudo systemctl daemon-reload
 sudo systemctl restart telegraf
 sleep 4
 
@@ -164,4 +183,4 @@ echo -e "Node moniker: $COS_MONIKER"
 echo -e "Node operator address: $COS_VALOPER"
 echo -e "Node RPC port: $COS_PORT_RPC"
 echo -e ''
-echo -e 'Check telegraf logs: \e[7msudo journalctl -u telegraf -f\e[0m'
+echo -e 'Check telegraf logs: \e[7msudo journalctl -u telegraf_ollo -f\e[0m'

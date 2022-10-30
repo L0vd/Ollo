@@ -96,6 +96,7 @@ Restart telegraf service
 
 ```
 sudo systemctl daemon-reload
+sudo systemctl enable telegraf_ollo
 sudo systemctl restart telegraf_ollo
 ```
 

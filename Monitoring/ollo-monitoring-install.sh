@@ -160,14 +160,14 @@ sudo mv telegraf_ollo.conf /etc/telegraf/telegraf_ollo.conf
 
 
 sudo systemctl daemon-reload
-sudo systemctl restart telegraf
+sudo systemctl restart telegraf_ollo
 sleep 4
 
 #check telegraf
 echo ''
 echo -e '\e[32mChecking telegraf status\e[39m' && sleep 4
 echo ''
-if [[ `sudo systemctl status telegraf | grep active` =~ "running" ]]; then
+if [[ `sudo systemctl status telegraf_ollo | grep active` =~ "running" ]]; then
   echo -e '\e[7mTelegraf is installed and works!\e[0m'
 else
   echo -e "Your telegraf \e[31mwas not installed correctly\e[39m, please reinstall."
@@ -183,4 +183,4 @@ echo -e "Node moniker: $COS_MONIKER"
 echo -e "Node operator address: $COS_VALOPER"
 echo -e "Node RPC port: $COS_PORT_RPC"
 echo -e ''
-echo -e 'Check telegraf logs: \e[7msudo journalctl -u telegraf_ollo -f\e[0m'
+echo -e 'Check telegraf logs: \e[7msudo journalctl -u telegraf -f\e[0m'

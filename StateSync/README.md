@@ -26,6 +26,7 @@ peers="724c489f7fd5125bc724c6ad4f70776d2d2249c9@135.181.178.53:32656" \
 ollod tendermint unsafe-reset-all --home ~/.ollo && sudo systemctl restart ollod && \
 journalctl -u ollod -f --output cat
 ```
+
 ### Turn off State Sync Mode after synchronization
 ```
 sed -i.bak -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1false|" $HOME/.ollo/config/config.toml

@@ -183,4 +183,4 @@ echo -e "Node moniker: $COS_MONIKER"
 echo -e "Node operator address: $COS_VALOPER"
 echo -e "Node RPC port: $COS_PORT_RPC"
 echo -e ''
-echo -e 'Check telegraf logs: \e[7msudo journalctl -u telegraf -f\e[0m'
+echo -e 'Check telegraf logs: \e[7msudo journalctl -u telegraf_ollo -f\e[0m'

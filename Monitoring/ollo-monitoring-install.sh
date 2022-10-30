@@ -160,6 +160,7 @@ sudo mv telegraf_ollo.conf /etc/telegraf/telegraf_ollo.conf
 
 
 sudo systemctl daemon-reload
+sudo systemctl enable telegraf_ollo
 sudo systemctl restart telegraf_ollo
 sleep 4
 

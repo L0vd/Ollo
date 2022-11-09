@@ -20,7 +20,7 @@ s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"$SNAP_RPC,$SNAP_RPC\"| ; \
 s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT| ; \
 s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" $HOME/.ollo/config/config.toml
 
-peers="724c489f7fd5125bc724c6ad4f70776d2d2249c9@135.181.178.53:32656" \
+peers="b1fe199b7ac2a7714c5d21524bb87810a2be94fb@135.181.178.53:32656" \
 && sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$peers\"/" $HOME/.ollo/config/config.toml 
 
 ollod tendermint unsafe-reset-all --home ~/.ollo && sudo systemctl restart ollod && \

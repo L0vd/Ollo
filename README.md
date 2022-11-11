@@ -21,7 +21,7 @@ https://github.com/L0vd/Ollo/tree/main/Ollo_wallet_bot
 
 ## IBC relayer with Sei network
 
-### ollo-testnet-1: transfer/channel-0 (connection-0)
-### atlantic-1: transfer/channel-409 (connection-391)
+#### ollo-testnet-1: transfer/channel-0 (connection-0)
+#### atlantic-1: transfer/channel-409 (connection-391)
 
 

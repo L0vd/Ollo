@@ -36,6 +36,8 @@ To get started, add your wallet address. After that, you will be able to see the
 ![Screenshot](https://github.com/L0vd/screenshots/blob/main/ollo/token_info.png?raw=true)  
 **Balance Mode**  
 ![Screenshot](https://github.com/L0vd/screenshots/blob/main/ollo/balance.png?raw=true)  
+**Watchlist Mode**  
+![Screenshot](https://github.com/L0vd/screenshots/blob/main/ollo/watchlist.png?raw=true) 
 **Validators Mode**  
 ![Screenshot](https://github.com/L0vd/screenshots/blob/main/ollo/validators.png)  
 **Proposals Mode**  

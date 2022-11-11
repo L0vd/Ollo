@@ -1,6 +1,6 @@
 # Ollo wallet bot by L0vd.com
 
-https://t.me/L0vd_Ollo_Bot
+https://t.me/L0vdBot
 
 ## Telegram Bot
 The bot does several useful things.

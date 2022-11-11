@@ -14,7 +14,7 @@ http://explorers.l0vd.com/ollo-testnet
 https://github.com/L0vd/Ollo/tree/main/Monitoring
 
 ## State sync
-https://github.com/L0vd/Ollo/tree/main/State_Sync
+https://github.com/L0vd/Ollo/tree/main/StateSync
 
 ## Wallet bot
 https://github.com/L0vd/Ollo/tree/main/Ollo_wallet_bot

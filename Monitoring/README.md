@@ -52,7 +52,9 @@ cd $HOME
 mkdir ollo-monitoring
 cd ollo-monitoring
 wget https://raw.githubusercontent.com/L0vd/Ollo/main/Monitoring/monitor.sh
-wget https://raw.githubusercontent.com/L0vd/Ollo/main/Monitoring/telegraf.conf
+```
+
+```
 nano variables.sh
 ```
 
